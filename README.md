@@ -1,54 +1,84 @@
-<h1><img src="assets/logo_dualmode.png" alt="CheerpJ JNLP Runner" height="96"></h1>
+<p align="center">
+  <a href="https://cheerpj.com/extensions/#gh-light-mode-only"><img src="assets/cheerpj-logo-dark.svg" alt="CheerpJ" width="240"></a>
+  <a href="https://cheerpj.com/extensions/#gh-dark-mode-only"><img src="assets/cheerpj-logo-light.svg" alt="CheerpJ" width="240"></a>
+</p>
 
-[![Discord server](https://img.shields.io/discord/988743885121548329?color=%237289DA&logo=discord&logoColor=ffffff)](https://discord.leaningtech.com)
-[![GitHub Issues](https://img.shields.io/github/issues/leaningtech/cheerpj-jnlprunner.svg)](https://github.com/leaningtech/cheerpj-meta/issues)
+<h3 align="center">Run Java Web Start applications in the browser.</h3>
 
-Run Java Web Start Applications without a Java Desktop installation including[^compat]:
+<p align="center">
+  The CheerpJ browser extension for Java Web Start, for Chrome and Edge.<br>
+  Open a <code>.jnlp</code> file and the application runs in a tab, with no Java installed on the computer.
+</p>
 
-- Oracle E-Business Suite
-- Oracle Forms Applications
-- Swing/AWT
+<p align="center">
+  <b><a href="https://chromewebstore.google.com/detail/cheerpj-jnlp-runner/achnhggjjhnadfapkmgallnbmemdojdi">Add to Chrome</a></b> ·
+  <b><a href="https://microsoftedge.microsoft.com/addons/detail/cheerpj-jnlp-runner/dpleickbpchmkpkmicanfolmianepfhe">Add to Edge</a></b> ·
+  <a href="https://labs.leaningtech.com/cheerpj-jnlp-runner">Docs</a> ·
+  <a href="https://discord.leaningtech.com">Discord</a> ·
+  <a href="https://github.com/leaningtech/cheerpj-jnlp-runner/issues/new/choose">Report a bug</a>
+</p>
 
-<img src="assets/screenshot.png" alt="CheerpJ JNLP Runner screenshots" height="350">
+<p align="center"><img src="assets/screenshot.png" alt="Java Web Start applications running in browser tabs" height="350"></p>
 
-The CheerpJ JNLP Runner browser extension, available for Chrome and Edge, can run Java Web Start (JWS) applications without a local Java Desktop installation. This browser extension, based on the [CheerpJ](https://github.com/leaningtech/cheerpj-meta) technology, is designed to replace the local Java Desktop installation, and run Java Web Start applications within the browser, without Java.
+The extension replaces the Java Web Start client that Oracle removed from Java 11. It has been tested on Oracle E-Business Suite, Oracle Forms and hundreds of custom Java client applications. It is listed as **CheerpJ JNLP Runner** in the Chrome Web Store and Edge Add-ons. It is built on [CheerpJ](https://cheerpj.com), a Java runtime built from OpenJDK and compiled to WebAssembly, and the CheerpJ browser extensions have more than 170,000 users together.
 
-The extension is private and secure, runs fully client-side (i.e. it does not contact any server), and does not collect any data or analytics at all. All your data, as well as your application are kept within the boundaries of your browser.
+> [!NOTE]
+> This repository is the extension's public **issue tracker**. The extension's code isn't here. For an applet inside a web page, use the [extension for applets](https://github.com/leaningtech/cheerpj-applet-runner).
 
-## Features
-CheerpJ JNLP Runner is based on CheerpJ, a JVM/JRE in WebAssembly and JavaScript for modern browsers. CheerpJ comes with a full OpenJDK runtime environment and replaces your JVM/JRE with a secure, browser-based alternative to run Java applications. 
+## How to use it
 
-CheerpJ supports a wide range of common application requirements, including:
+1. Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/cheerpj-jnlp-runner/achnhggjjhnadfapkmgallnbmemdojdi) or [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/cheerpj-jnlp-runner/dpleickbpchmkpkmicanfolmianepfhe).
+2. Click a link to a `.jnlp` file, open one from your computer, or drag it onto the extension's popup.
+3. The first time, read and accept the [licence agreement](https://cheerpj.com/cheerpj-jnlp-runner-end-user-licence-agreement/). The application then starts in a new tab.
 
-- [Networking], including HTTP/S and TCP
-- [Virtualized filesystem]
-- [Clipboard] access
-- Audio
-- Printing
-- Swing/AWT
+A side panel on the left of the tab downloads the `.jnlp` file, uploads files for the application, opens the settings and manages your licence. See [using the extension for the first time](https://labs.leaningtech.com/docs/cheerpj-jnlp-runner/getting-started/using-first-time).
 
-## How to use the CheerpJ JNLP Runner
+## What it runs
 
-The extension is designed to be simple and easy to use. Once installed, navigate to the website hosting the JNLP file, and the JNLP Runner extension will automatically activate. A new Chrome tab will open, and after agreeing to the license, you'll see the options 'Start Application' and 'Download'. Simply click on 'Start Application', and the Java application will be executed within the browser.
+| | |
+| --- | --- |
+| **Java** | Java 8 Web Start applications, with Swing and AWT interfaces |
+| **Applications** | Oracle E-Business Suite, Oracle Forms and custom Java clients |
+| **Browsers** | Chrome, Edge and other Chromium browsers on desktop |
+| **Files** | Upload files from the side panel; files the application saves arrive as browser downloads ([file handling](https://labs.leaningtech.com/docs/cheerpj-jnlp-runner/guides/file-handling)) |
+| **Networking** | HTTP(S) through the browser. TCP and UDP sockets through a Tailscale network, set in the extension's settings |
 
-## Privacy and Security
+For Oracle Forms and EBS across an organisation, see [Oracle Forms](https://cheerpj.com/oracle-forms/) and [Oracle EBS](https://cheerpj.com/oracle-ebs/).
 
-The extension is private and secure, runs fully client-side, and does not collect any data or analytics at all. All your data, as well as your application are kept within the boundaries of your browser. The privacy policy for the CheerpJ JNLP Runner is available [here](https://cheerpj.com/privacy-policy-for-cheerpj-jnlp-runner-chrome-extension). 
+## For organisations
 
-## Reporting bugs
+With an Enterprise licence, desktop administrators deploy the extension to managed Chrome and Edge through Group Policy or Intune, and set the licence by policy, where it activates offline. A self-hosted version serves networks that can't reach the stores, including air-gapped ones. See [enterprise configuration](https://labs.leaningtech.com/docs/cheerpj-jnlp-runner/guides/configure-extension-for-enterprises) and [private hosting](https://labs.leaningtech.com/docs/cheerpj-jnlp-runner/guides/private-hosting-for-enterprises).
 
-If a JNLP application does not work as expected for you, we can help. Open an new [Issue](https://github.com/leaningtech/cheerpj-jnlprunner/issues) providing the following information:
+## Privacy
 
-* A description of the problem
-* Relevant screenshots
-* The full console log, visible from Chrome's Developer Tools
-* A publicly accessible URL
+The applications, their files and their traffic stay between your browser and their servers, and don't pass through us. The extension does send us some information:
 
-Please note that it might not be possible for us to help if the application is not accessible on the public internet. For internal and private applications, please get in touch privately at: jnlprunner@leaningtech.com
+- **Usage and error statistics** when an application starts, to Plausible Analytics, which we host ourselves. They never include the address of the `.jnlp` file, the application's name or what you type.
+- **Bug reports**, only if you choose to send one when an application fails to start. A report includes the `.jnlp` file, which can name your organisation's internal servers.
+- **Licence checks**, if you activate a licence.
 
+The details are in the [privacy policy](https://cheerpj.com/privacy-policy-for-cheerpj-jnlp-runner-chrome-extension/).
 
-[^compat]: CheerpJ JNLP Runner has been tested on Oracle Forms, EBS, Swing, AWT, and numerous frameworks and libraries. It should be able to run Java Web Start applications that you would otherwise need a Java Runtime Environment for.
+## Reporting a bug
 
-[Networking]: https://labs.leaningtech.com/cheerpj3/guides/Networking
-[Virtualized filesystem]: https://labs.leaningtech.com/cheerpj3/guides/File-System-support
-[Clipboard]: https://labs.leaningtech.com/cheerpj3/reference/cheerpjInit#clipboardmode
+When an application fails to start, the extension offers to send us a report. You can also use **Report a bug** in the extension, or [open an issue](https://github.com/leaningtech/cheerpj-jnlp-runner/issues/new/choose). Include:
+
+- the address of the `.jnlp` file, if it's public;
+- the extension's version, from `chrome://extensions` or `edge://extensions`;
+- your browser and OS;
+- the full console output, from the browser's developer tools.
+
+Issues are public. For an internal or private application, write to jnlprunner@leaningtech.com instead. Questions are welcome on [Discord](https://discord.leaningtech.com).
+
+## Licensing
+
+Free for personal use and technical evaluation. Business use needs a [Desktop licence](https://cheerpj.com/licensing/#run), bought online for up to 20 desktops. For larger deployments, Enterprise licences need no licence server: [contact us](https://cheerpj.com/contact/). See [the extension's licences](https://cheerpj.com/cheerpj-jnlp-runner-licenses/).
+
+---
+
+<p align="center">
+  <a href="https://cheerpj.com/extensions/">cheerpj.com</a> ·
+  <a href="https://discord.leaningtech.com">Discord</a> ·
+  <a href="https://x.com/leaningtech">X</a> ·
+  Made by <a href="https://leaningtech.com">Leaning Technologies</a>
+</p>
